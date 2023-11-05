@@ -1,4 +1,4 @@
-nvname: Test
+name: Test
 
 on:
   push:
