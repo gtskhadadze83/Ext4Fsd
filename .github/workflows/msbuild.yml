@@ -32,18 +32,26 @@ jobs:
     
     - name: Checkout
       uses: actions/checkout@v3
-    
-    - name: Chocolatey Action
+
+    - name: Chocolatey Install WinSDK
       uses: crazy-max/ghaction-chocolatey@v3.0.0
       with:
-          args: install windowsdriverkit10 --verbose --accept-license --confirm
-
+          args: install windows-sdk-10-version-2004-all --verbose --accept-license --confirm
+    
+    - name: Chocolatey Install WinWDK
+      uses: crazy-max/ghaction-chocolatey@v3.0.0
+      with:
+          args: install windowsdriverkit10 --verbose --accept-license --confirm    
+          
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Restore NuGet packages
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: nuget restore ${{env.SOLUTION_FILE_PATH}}
+
+    - name: Show Variables
+      run: pwsh dir env:
 
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
