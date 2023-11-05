@@ -68,8 +68,8 @@ jobs:
     - name: Set Artifact Name
       run: |
           echo $(Get-Date -Format dd.MM.yy) | set DATE_NOW;
-          $env:ARTFC_NAME = $env:DATE_NOW + "-Ext4Fsd";
-          echo $env:ARTFC_NAME;
+          $ARTFC_NAME = $DATE_NOW + "-Ext4Fsd";
+          echo $ARTFC_NAME;
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
