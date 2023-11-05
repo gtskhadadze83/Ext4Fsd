@@ -16,7 +16,8 @@ on:
  
 
 permissions:
-  contents: read
+  contents: read|write
+  actions: read|write
 
 jobs:
   build:
@@ -37,8 +38,8 @@ jobs:
           echo ""FILE_NAME=$Env:ARTFC_NAME"" >> $Env:GITHUB_ENV;
           echo "FILE_PATH: ${{ env.FILE_PATH }}";
           echo "FILE_NAME: ${{ env.FILE_NAME }}";
-          Set-Item -Path Env:FILE_PATH -Value $(Env:GITHUB_WORKSPACE)
-          Set-Item -Path Env:FILE_NAME -Value $(Env:GITHUB_WORKSPACE)
+          Set-Item -Path Env:FILE_PATH -Value $Env:GITHUB_WORKSPACE
+          Set-Item -Path Env:FILE_NAME -Value $Env:GITHUB_WORKSPACE
           echo "FILE_PATH2: ${Env:FILE_PATH}";
           echo "FILE_NAME2: ${Env:FILE_NAME}";
 
