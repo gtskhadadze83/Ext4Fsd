@@ -30,8 +30,9 @@ jobs:
     - name: Set Artifact Name
       run: |
           echo $(Get-Date -Format dd.MM.yy) | set DATE_NOW;
-          $ARTFC_NAME = $DATE_NOW + "-Ext4Fsd";
-          echo $ARTFC_NAME;
+          ${env:ARTFC_NAME} = $DATE_NOW + "-Ext4Fsd";
+          echo "filename: ${env:ARTFC_NAME}";
+          echo "work dir: ${env:GITHUB_WORKSPACE}";
 
     - name: Show Variables
       run: 'dir Env:'
@@ -39,7 +40,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ env.ARTFC_NAME }}
+        name: ${env:ARTFC_NAME}
         path: | 
-            ${{ env.GITHUB_WORKSPACE }}\Setup\
+            ${env:GITHUB_WORKSPACE}\Setup\
              
