@@ -75,8 +75,7 @@ jobs:
       with:
         name: $ARTFC_NAME
         path: | 
-              /Ext4Fsd/Release/
-              /Ext2Srv/Release/
-              /Ext2Mgr/Release/
-
+             D:\a\Ext4Fsd\Ext4Fsd\*\Release\x86\
+             D:\a\Ext4Fsd\Ext4Fsd\*\Release\x86\
+             D:\a\Ext4Fsd\Ext4Fsd\*\Release\x86\
    
