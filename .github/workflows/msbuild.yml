@@ -36,7 +36,7 @@ jobs:
     - name: Chocolatey Action
       uses: crazy-max/ghaction-chocolatey@v3.0.0
       with:
-          args: install windowsdriverkit10 --version=10.0.17763 --verbose --accept-license --confirm
+          args: install windowsdriverkit10 --verbose --accept-license --confirm
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
