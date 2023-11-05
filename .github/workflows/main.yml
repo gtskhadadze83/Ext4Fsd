@@ -28,14 +28,12 @@ jobs:
     runs-on: windows-2019
 
     steps:
-    
-    - name: Checkout
-      uses: actions/checkout@v3
+  
 
     - name: Set Artifact Name
       run: |
           echo $(Get-Date -Format dd.MM.yy) | set DATE_NOW;
-          Set-Item -Path Env:ARTFC_NAME -Value $($DATE_NOW + "-Ext4Fsd");
+          Set-Item -Path Env:ARTFC_NAME -Value "$DATE_NOW + "-Ext4Fsd"";
           echo "filename: $Env:ARTFC_NAME";
           echo "work dir: $Env:GITHUB_WORKSPACE";
           echo "filename: ${{env.ARTFC_NAME}};
@@ -47,8 +45,8 @@ jobs:
           echo "FILE_NAME1: ${{env.FILE_NAME1}}"
           Set-Item -Path Env:FILE_PATH -Value $Env:GITHUB_WORKSPACE;
           Set-Item -Path Env:FILE_NAME -Value $Env:ARTFC_NAME;
-          echo "FILE_PATH: $Env:FILE_PATH";
-          echo "FILE_NAME: $Env:FILE_NAME";
+          echo ""FILE_PATH:" + $Env:FILE_PATH";
+          echo ""FILE_NAME:" + $Env:FILE_NAME";
 
     - name: Show Variables
       run: 'dir Env:'
