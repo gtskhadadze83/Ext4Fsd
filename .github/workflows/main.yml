@@ -15,8 +15,6 @@ env:
   FILE_PATH: ""
   
   FILE_NAME: ""
-
-  ARTFC_NAME: ""
  
 
 permissions:
@@ -38,8 +36,8 @@ jobs:
       run: |
           echo $(Get-Date -Format dd.MM.yy) | set DATE_NOW;
           Set-Item -Path Env:ARTFC_NAME -Value $($DATE_NOW + "-Ext4Fsd");
-          echo "filename: ${Env:ARTFC_NAME}";
-          echo "work dir: ${Env:GITHUB_WORKSPACE}";
+          echo "filename: $Env:ARTFC_NAME";
+          echo "work dir: $Env:GITHUB_WORKSPACE";
           echo "filename: ${{env.ARTFC_NAME}};
           echo "work dir: ${{env.GITHUB_WORKSPACE}}";
           
