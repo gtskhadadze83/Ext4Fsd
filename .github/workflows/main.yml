@@ -41,5 +41,5 @@ jobs:
       with:
         name: ${{ env.ARTFC_NAME }}
         path: | 
-            ${{env.GITHUB_WORKSPACE}}\Setup\
+            ${{ env.GITHUB_WORKSPACE }}\Setup\
              
