@@ -6,22 +6,11 @@ on:
   pull_request:
     branches: [ "master" ]
 
-env:
-
-  FILE_PATH1: ""
- 
-  FILE_NAME1: ""
-
-  FILE_PATH: ""
-  
-  FILE_NAME: ""
  
 
 permissions:
-  contents: write
-  actions: write
+  contents: read
 
-  
 
 jobs:
   build:
