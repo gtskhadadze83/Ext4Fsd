@@ -68,6 +68,6 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: $ARTFC_NAME
-        path: ${{env.GITHUB_WORKSPACE}}/artifact/
+        path: /Ext4Fsd/Release/
 
    
