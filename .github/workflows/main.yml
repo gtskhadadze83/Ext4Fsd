@@ -69,8 +69,6 @@ jobs:
              
   - name: Upload
     uses: actions/upload-artifact@v3
-    env:
-      ARTF_NAME: ${{steps.ID1.outputs.file_name}}
     with:
       name: $ARTF_NAME
       path: |
