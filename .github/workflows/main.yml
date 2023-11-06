@@ -44,7 +44,7 @@ jobs:
 
     - name: setPathforUpload
       id: set_pathes
-      shell: pwsh cmd {0}
+      shell: cmd pwsh {0}
       run: |         
          echo ${{env.GITHUB_WORKSPACE}}
          echo "${env:GITHUB_WORKSPACE}
