@@ -31,11 +31,10 @@ jobs:
   - name: SetArtifactName 
     id: set_file_name
     run: |
-          echo $(Get-Date -Format dd.MM.yy) | Set-Variable DATE_NOW
+          DATE_NOW = $(Get-Date -Format dd.MM.yy)
           echo $DATE_NOW
-          Set-Variable -Name FILE_NAME -Value ($DATE_NoW + "-Ext4Fsd")
+          FILE_NAME = $($DATE_NoW + "-Ext4Fsd")
           echo "filename: $FILE_NAME"
-          echo "ARTF_NAME=$env:FILE_NAME" >> "$GITHUB_ENV"
           
   - name: show ENV
     run: 'dir env:'
