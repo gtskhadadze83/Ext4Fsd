@@ -6,24 +6,22 @@ on:
   pull_request:
     branches: [ "master" ]
 
- 
-
 permissions:
   contents: read
 
-
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-latest
 
     steps:
-  
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Set Artifact Name
-      run: |
-          echo $(Get-Date -Format dd.MM.yy) | set DATE_NOW
-          echo $DATE_NOW
-          echo $env:DATE_NOW
+      - name: Set Artifact Name
+        run: |
+          echo $(Get-Date -Format dd.MM.yy) | set DATE_NOW;
+          echo $DATE_NOW;
+          echo ${env:DATE_NOW}
           Set-Item -Path Env:ARTFC_NAME -Value "$DATE_NOW + "-Ext4Fsd""
           echo "filename: $Env:ARTFC_NAME"
           echo "work dir: $Env:GITHUB_WORKSPACE"
