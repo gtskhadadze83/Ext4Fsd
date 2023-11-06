@@ -67,16 +67,15 @@ jobs:
          echo $env:DIR1
          echo $env:DIR2 
          echo $env:DIR3
-         
-        
-  - name: Upload Artifact
+             
+   
+  - uses: actions/upload-artifact@v3
     id: ID4
     env:
       ARTF_NAME: ${{steps.ID1.outputs.file_name}}
-    uses: actions/upload-artifact@v3
     with:
-        name: $ARTF_NAME
-        path: |
+      name: $ARTF_NAME
+      path: |
             ${{env.PATH_1}}
             ${{env.PATH_2}}      
             ${{env.PATH_3}}
