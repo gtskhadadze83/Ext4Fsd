@@ -33,7 +33,7 @@ jobs:
     uses: actions/checkout@v3
       
   - name: SetArtifactName 
-    id: ID1
+    id: SID1
     run: |
         set DATE_NOW -Value $(Get-Date -Format dd.MM.yy)
         echo $DATE_NOW
@@ -45,21 +45,19 @@ jobs:
     run: 'dir env:'
 
   - name: setPathforUpload
-    id: ID2
+    id: SID2
     env: 
-        PATH_1: ${{env.DIR_1}}
-        PATH_2: ${{env.DIR_2}}
-        PATH_3: ${{env.DIR_3}}      
+        PATH_1: ${{env.DIR1}}
+        PATH_2: ${{env.DIR2}}
+        PATH_3: ${{env.DIR3}}
+    shell: pwsh  
     run: |
         echo $env:PATH_1
         echo $env:PATH_2
-        echo $env:PATH_3
-
-          echo "filename: $env:FILE_NAME"
-         
+        echo $env:PATH_3         
 
   - name: ShowVariables
-    id: ID3
+    id: SID3
     env: 
      working-directory: ${{env.GITHUB_WORKSPACE}}
      run: |
@@ -71,8 +69,10 @@ jobs:
          echo $env:DIR3         
         
   - uses: actions/upload-artifact@v3
+    env:
+      ARTIF_NAMER: ${{ steps.SID1.outputs.file_name }}
     with:
-      name: $ARTF_NAME
+      name: $ARTIF_NAME
       path: |
           ${{env.PATH_1}}
           ${{env.PATH_2}}      
