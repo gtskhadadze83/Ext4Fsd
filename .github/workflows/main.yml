@@ -51,6 +51,13 @@ jobs:
           PATH_1=$env:DIR1
           PATH_2=$env:DIR2
           PATH_3=$env:DIR3
+
+          echo $env:PATH_1
+          echo $env:PATH_2
+          echo $env:PATH_3
+          echo $env:DIR1
+          echo $env:DIR2 
+          echo $env:DIR3
          
 
   - name: ShowVariables
