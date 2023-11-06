@@ -18,12 +18,10 @@ jobs:
        
   
   env:
-    DIR1: ""
-    DIR2: "" 
-    DIR3: ""
-    PATH_1: ""
-    PATH_2: ""
-    PATH_3: ""
+   
+    DIR1: ("*\Release\x64\Ext4Fsd")
+    DIR2: ("*\Release\x64\Ext2Srv.exe") 
+    DIR3: ("*\Release\x64\Ext2Mgr.exe")
 
   steps:
    
@@ -45,12 +43,10 @@ jobs:
   - name: setPathforUpload
     shell: cmd pwsh {0}
     run: |
-          DIR1="*\Release\x64\Ext4Fsd"
-          DIR2="*\Release\x64\Ext2Srv.exe" 
-          DIR3="*\Release\x64\Ext2Mgr.exe"
-          PATH_1=$env:DIR1
-          PATH_2=$env:DIR2
-          PATH_3=$env:DIR3
+     env:
+          PATH_1: $env:DIR1
+          PATH_2: $env:DIR2
+          PATH_3: $env:DIR3
 
           echo $env:PATH_1
           echo $env:PATH_2
