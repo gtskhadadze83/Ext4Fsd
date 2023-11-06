@@ -41,16 +41,16 @@ jobs:
     - name: set Variables
       id: step_one
       run: |
-          echo "MY_PATH4=hdhfhdh" >> "$GITHUB_ENV"
           echo "MY_PATH3=hdhfhdh" >> "$GITHUB_OUTPUT"
       
     - name: Upload Artifact
-      id: step_two
+      env:
+       MY_PATH3: ${{ steps.step_one.outputs.MY_PATH3 }}
       uses: actions/upload-artifact@v3
       with:
           name: ${{env.FILE_NAME}}
           path: |
             ${{env.MY_PATH}}
             ${{env.MY_PATH2}}      
-            ${{steps.step_one.outputs.MY_PATH3}}
+            $MY_PATH3
             
