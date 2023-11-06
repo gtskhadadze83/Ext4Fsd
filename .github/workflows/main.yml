@@ -45,8 +45,7 @@ jobs:
     env: 
         PATH_1: ${{env.DIR_1}}
         PATH_2: ${{env.DIR_2}}
-        PATH_3: ${{env.DIR_3}}
-          
+        PATH_3: ${{env.DIR_3}}      
     shell: cmd pwsh {0}
     run: |
           echo $env:PATH_1
@@ -68,9 +67,8 @@ jobs:
          echo $env:DIR2 
          echo $env:DIR3
              
-  - name: Uüöpaf
+  - name: Upload
     uses: actions/upload-artifact@v3
-    id: ID4
     env:
       ARTF_NAME: ${{steps.ID1.outputs.file_name}}
     with:
