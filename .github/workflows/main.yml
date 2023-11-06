@@ -14,60 +14,60 @@ permissions:
 jobs:
  build:  
      
-   name: build_source
-   runs-on: windows-2019 
-   
-   env:
-
-      REPO_PATH: $GITHUB_WORKSPACE
-      RELEASE_NAME: $ARTF_NAME
+  runs-on: windows-2019   
        
-   steps:
+  
+  env:
+    DIR1: ""
+    DIR2: "" 
+    DIR3: ""
+    PATH_1: ""
+    PATH_2: ""
+    PATH_3: ""
+
+  steps:
    
-    - name: Checkout
-      uses: actions/checkout@v3
+  - name: Checkout
+    uses: actions/checkout@v3
       
-    - name: SetArtifactName 
-      id: set_file_name
-      run: |
+  - name: SetArtifactName 
+    id: set_file_name
+    run: |
           echo $(Get-Date -Format dd.MM.yy) | Set-Variable DATE_NOW
           echo $DATE_NOW
           Set-Variable -Name FILE_NAME -Value ($DATE_NoW + "-Ext4Fsd")
           echo "filename: $FILE_NAME"
           echo "ARTF_NAME=$env:FILE_NAME" >> "$GITHUB_ENV"
           
-    - name: show ENV
-      run: 'dir env:'
+  - name: show ENV
+    run: 'dir env:'
 
-    - name: setPathforUpload
-      id: set_pathes
-      shell: cmd pwsh {0}
-      run: |         
-    
-         echo $env:GITHUB_WORKSPACE
-         echo "REPO_PATH: ${{env.REPO_PATH}}"
-         $env:DIR1="*\Release\x64\Ext4Fsd"
-         $env:DIR2="*\Release\x64\Ext2Srv.exe" 
-         $env:DIR3="*\Release\x64\Ext2Mgr.exe"
-         $env:PATH_1=$env:DIR1
-         $nv:PATH_2=$env:DIR2
-         $env:PATH_3=$env:DIR3
+  - name: setPathforUpload
+    shell: cmd pwsh {0}
+    run: |
+          DIR1="*\Release\x64\Ext4Fsd"
+          DIR2="*\Release\x64\Ext2Srv.exe" 
+          DIR3="*\Release\x64\Ext2Mgr.exe"
+          PATH_1=$env:DIR1
+          PATH_2=$env:DIR2
+          PATH_3=$env:DIR3
          
 
-    - name: ShowVariables
-      run: |
+  - name: ShowVariables
+    run: |
          echo $env:PATH_1
          echo $env:PATH_2
          echo $env:PATH_3
+         echo $env:DIR1
+         echo $env:DIR2 
+         echo $env:DIR3
          
         
-    - name: Upload Artifact
-      env:
-       MY_PATH66: ${{ steps.step_one.env.MY_PATH6 }}
-      uses: actions/upload-artifact@v3
-      with:
-          name: ${{env.FILE_NAME}}
-          path: |
+  - name: Upload Artifact
+    uses: actions/upload-artifact@v3
+    with:
+        name: ${{env.FILE_NAME}}
+        path: |
             ${{env.PATH_1}}
             ${{env.PATH_2}}      
             ${{env.PATH_3}}
