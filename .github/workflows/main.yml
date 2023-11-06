@@ -28,13 +28,12 @@ jobs:
           echo $DATE_NOW
           Set-Variable -Name ARTFC_NAME -Value ($DATE_NoW + "-Ext4Fsd")
           echo "filename: $ARTFC_NAME"
-          echo "MY_PATH22: $MY_PATH2"
           echo "MY_PATH22: $env:MY_PATH2"
           echo "MY_PATH22: ${env:MY_PATH2}"
           echo "MY_PATH22: ${{env.MY_PATH2}}"
           echo "filename3: ${{env.FILE_NAME}}"
-          Set-Variable -Name env:MY_PATH2 -Value ("/fsssg")
-          echo "MY_PATH22: $MY_PATH2"
+          Set-Variable -Name ${env:MY_PATH2} -Value ("/fsssg")
+          echo "MY_PATH22: ${env:MY_PATH2}"
           
     - name: Show Variables
       run: 'dir Env:'
