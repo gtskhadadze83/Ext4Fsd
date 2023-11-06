@@ -35,7 +35,7 @@ jobs:
           echo $DATE_NOW
           Set-Variable -Name FILE_NAME -Value ($DATE_NoW + "-Ext4Fsd")
           echo "filename: $FILE_NAME"
-          echo "ARTF_NAME=$FILE_NAME" >> $GITHUB_OUTPUT
+          echo "ARTF_NAME=$FILE_NAME" >> $GITHUB_ENV
           
     - name: show ENV
       run: 'dir env:'
