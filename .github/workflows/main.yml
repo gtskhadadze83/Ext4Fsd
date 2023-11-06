@@ -44,7 +44,7 @@ jobs:
 
     - name: setPathforUpload
       id: set_pathes
-      shell: cmd
+      shell: msys2
       run: |         
          echo ${{env.GITHUB_WORKSPACE}}
          echo "${env:GITHUB_WORKSPACE}
@@ -53,10 +53,9 @@ jobs:
          $DIR1="*\Release\x64\Ext4Fsd"
          $DIR2="*\Release\x64\Ext2Srv.exe" 
          $DIR3="*\Release\x64\Ext2Mgr.exe"
-         echo <<-EOF"PATH_1=$DIR1"EOF >> "$GITHUN_ENV"EOF
-         echo <<-EOF"PATH_2=$DIR2"EOF >> "$GITHUB_ENV"EOF
-         echo <<-EOF"PATH_3=$DIR3"EOF >> "$GITHUB_ENV"
-         EOF
+         echo "PATH_1=$DIR1">> "$GITHUN_ENV"
+         echo "PATH_2=$DIR2" >> "$GITHUB_ENV"
+         echo "PATH_3=$DIR3" >> "$GITHUB_ENV"
          
 
     - name: ShowVariables
