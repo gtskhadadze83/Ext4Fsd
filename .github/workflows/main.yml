@@ -61,8 +61,6 @@ jobs:
         echo "filename: $FILE_NAME"
         echo "file_name=$FILE_NAME" >> $GITHUB_OUTPUT
           
-  - name: show ENV
-    run: 'dir env:'
 
   - name: setPathforUpload
     id: SID2
