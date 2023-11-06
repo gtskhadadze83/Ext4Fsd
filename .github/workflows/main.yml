@@ -8,6 +8,7 @@ on:
 
 env:
   FILE_NAME: "Arti"
+  MY_PATH: "/sss/bbb"
 
 permissions:
   contents: read
@@ -26,8 +27,9 @@ jobs:
           echo $DATE_NOW
           Set-Variable -Name ARTFC_NAME -Value ($DATE_NoW + "-Ext4Fsd")
           echo "filename: $ARTFC_NAME"
-          echo "filename2: $ext:FILE_NAME"
+          echo "filename2: ${ext:FILE_NAME}"
           echo "filename3: ${{env.FILE_NAME}}"
+          Set-Variable -Name MY_PATH -Value ("/fsssg")
           
       - name: Show Variables
         run: 'dir Env:'
@@ -37,7 +39,7 @@ jobs:
         with:
          name: ${{env.FILE_NAME}}
          path: |
-            ${{env.GITHUB_WORKSPACE}}
+            ${{env.MY_PATH}}
             
             
              
