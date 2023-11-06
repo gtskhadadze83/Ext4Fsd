@@ -34,7 +34,7 @@ jobs:
           echo $DATE_NOW
           Set-Variable -Name FILE_NAME -Value ($DATE_NoW + "-Ext4Fsd")
           echo "filename: $FILE_NAME"
-          echo "ARTF_NAME=$FILE_NAME" >> "$GITHUB_ENV"
+          echo "ARTF_NAME=$env:FILE_NAME" >> "$GITHUB_ENV"
           
     - name: show ENV
       run: 'dir env:'
@@ -46,10 +46,10 @@ jobs:
     
          echo $env:GITHUB_WORKSPACE
          echo "REPO_PATH: ${{env.REPO_PATH}}"
-         $DIR1="*\Release\x64\Ext4Fsd"
-         $DIR2="*\Release\x64\Ext2Srv.exe" 
-         $DIR3="*\Release\x64\Ext2Mgr.exe"
-         echo "PATH_1=$env:DIR1" >> "$GITHUN_ENV"
+         $env:DIR1="*\Release\x64\Ext4Fsd"
+         $env:DIR2="*\Release\x64\Ext2Srv.exe" 
+         $env:DIR3="*\Release\x64\Ext2Mgr.exe"
+         echo "PATH_1=$env:DIR1" >> "$GITHUb_ENV"
          echo "PATH_2=$env:DIR2" >> "$GITHUB_ENV"
          echo "PATH_3=$env:DIR3" >> "$GITHUB_ENV"
          
