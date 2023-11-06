@@ -19,9 +19,9 @@ jobs:
   
   env:
    
-    DIR1: ("*\Release\x64\Ext4Fsd")
-    DIR2: ("*\Release\x64\Ext2Srv.exe") 
-    DIR3: ("*\Release\x64\Ext2Mgr.exe")
+    DIR1: "*\Release\x64\Ext4Fsd"
+    DIR2: "*\Release\x64\Ext2Srv.exe" 
+    DIR3: "*\Release\x64\Ext2Mgr.exe"
 
   steps:
    
@@ -58,6 +58,9 @@ jobs:
 
   - name: ShowVariables
     run: |
+    env: 
+     working-directory: ${{env.GITHUB_WORKSPACE}}
+     
          echo $env:PATH_1
          echo $env:PATH_2
          echo $env:PATH_3
