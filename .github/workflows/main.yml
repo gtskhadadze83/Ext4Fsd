@@ -43,9 +43,9 @@ jobs:
     shell: cmd pwsh {0}
     run: |
      env:
-          PATH_1: $env:DIR1
-          PATH_2: $env:DIR2
-          PATH_3: $env:DIR3
+          PATH_1: ${{env.DIR_1}}
+          PATH_2: ${{env.DIR_2}}
+          PATH_3: ${{env.DIR_3}}
 
           echo $env:PATH_1
           echo $env:PATH_2
