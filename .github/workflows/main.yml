@@ -49,9 +49,9 @@ jobs:
          echo "${env:GITHUB_WORKSPACE}
          echo $GITHUB_WORKSPACE
          echo "REPO_PATH: ${{env.REPO_PATH}}"
-         echo "PATH_1='*\Release\x64\Ext4Fsd\Ä'" >> "$GITHUB_ENV"
-         echo "PATH_2='*\Release\x64\Ext2Srv.exe'" >> "$GITHUB_ENV"
-         echo "PATH_3='*\Release\x64\Ext2Mgr.exe'" >> "$GITHUB_ENV"
+         echo "PATH_1=*\Release\x64\Ext4Fsd\Ä" >> $GITHUB_ENV
+         echo "PATH_2=*\Release\x64\Ext2Srv.exe" >> $GITHUB_ENV
+         echo "PATH_3=*\Release\x64\Ext2Mgr.exe" >> $GITHUB_ENV
          
 
     - name: ShowVariables
