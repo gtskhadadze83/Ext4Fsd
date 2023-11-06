@@ -20,9 +20,6 @@ jobs:
    env:
 
       REPO_PATH: $GITHUB_WORKSPACE
-      OUT_PATH_1: $PATH_1
-      OUT_PATH_2: $PATH_2
-      OUT_PATH_3: $PATH_3
       RELEASE_NAME: $ARTF_NAME
        
    steps:
@@ -46,16 +43,15 @@ jobs:
       id: set_pathes
       shell: cmd pwsh {0}
       run: |         
-         echo ${{env.GITHUB_WORKSPACE}}
-         echo "${env:GITHUB_WORKSPACE}
-         echo $GITHUB_WORKSPACE
+    
+         echo $env:GITHUB_WORKSPACE
          echo "REPO_PATH: ${{env.REPO_PATH}}"
          $DIR1="*\Release\x64\Ext4Fsd"
          $DIR2="*\Release\x64\Ext2Srv.exe" 
          $DIR3="*\Release\x64\Ext2Mgr.exe"
-         echo "PATH_1=$DIR1" >> "$GITHUN_ENV"
-         echo "PATH_2=$DIR2" >> "$GITHUB_ENV"
-         echo "PATH_3=$DIR3" >> "$GITHUB_ENV"
+         echo "PATH_1=$env:DIR1" >> "$GITHUN_ENV"
+         echo "PATH_2=$env:DIR2" >> "$GITHUB_ENV"
+         echo "PATH_3=$env:DIR3" >> "$GITHUB_ENV"
          
 
     - name: ShowVariables
@@ -63,9 +59,9 @@ jobs:
          echo $env:PATH_1
          echo $env:PATH_2
          echo $env:PATH_3
-         echo ${{env.OUT_PATH_1}}
-         echo ${{env.OUT_PATH_2}}
-         echo ${{env.OUT_PATH_3}}
+         echo $PATH_1
+         echo $PATH_2
+         echo $PATH_3
          
         
     - name: Upload Artifact
