@@ -9,9 +9,9 @@ on:
 env:
 
  REPO_PATH: ${env:GITHUB_WORKSPACE}
- OUT_PATH_1: ${{ steps.setPathforUpload.outputs.PATH_1 }}
- OUT_PATH_2: ${{ steps.setPathforUpload.outputs.PATH_2 }}
- OUT_PATH_3: ${{ steps.setPathforUpload.outputs.PATH_3 }}
+ OUT_PATH_1: ${{ steps.set_pathes.outputs.PATH_1 }}
+ OUT_PATH_2: ${{ steps.set_pathes.outputs.PATH_2 }}
+ OUT_PATH_3: ${{ steps.set_pathes.outputs.PATH_3 }}
  RELEASE_NAME: ${{ steps.set_file_name.outputs.ARTF_NAME }}
   
 permissions:
