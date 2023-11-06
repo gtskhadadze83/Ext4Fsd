@@ -55,7 +55,7 @@ jobs:
          echo <<-EOF"PATH_1=$DIR1"EOF >> "$GITHUN_ENV"EOF
          echo <<-EOF"PATH_2=$DIR2"EOF >> "$GITHUB_ENV"EOF
          echo <<-EOF"PATH_3=$DIR3"EOF >> "$GITHUB_ENV"
-EOF
+         EOF
          
 
     - name: ShowVariables
