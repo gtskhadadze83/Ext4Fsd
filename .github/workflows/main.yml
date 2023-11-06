@@ -15,15 +15,16 @@ jobs:
  build:  
      
    name: build_source
+   id: job1
    runs-on: windows-2019 
    
    env:
 
-      REPO_PATH: ${env:GITHUB_WORKSPACE}
-      OUT_PATH_1: ${{ steps.set_pathes.env.PATH_1 }}
-      OUT_PATH_2: ${{ steps.set_pathes.env.PATH_2 }}
-      OUT_PATH_3: ${{ steps.set_pathes.env.PATH_3 }}
-      RELEASE_NAME: ${{ steps.set_file_name.env.ARTF_NAME }} 
+      REPO_PATH: ${{ env.GITHUB_WORKSPACE }}
+      OUT_PATH_1: ${{ ext:PATH_1 }}
+      OUT_PATH_2: ${{ env.PATH_2 }}
+      OUT_PATH_3: ${{ env.PATH_3 }}
+      RELEASE_NAME: ${{ env.ARTF_NAME }} 
       
    steps:
    
@@ -37,7 +38,7 @@ jobs:
           echo $DATE_NOW
           Set-Variable -Name FILE_NAME -Value ($DATE_NoW + "-Ext4Fsd")
           echo "filename: $FILE_NAME"
-          echo "ARTF_NAME=$FILE_NAME" >> $GITHUB_ENV
+          echo "ARTF_NAME=$FILE_NAME" >> "$GITHUB_ENV"
           
     - name: show ENV
       run: 'dir env:'
@@ -46,9 +47,9 @@ jobs:
       id: set_pathes
       run: |
          echo ("REPO_PATH: ${{env.REPO_PATH}}")
-         echo "PATH_1=$($env:REPO_PATH+"*\Release\x64\Ext4Fsd\")" >> $GITHUB_ENV
-         echo "PATH_2=$($env:REPO_PATH+"*\Release\x64\Ext2Srv.exe")" >> $GITHUB_ENV
-         echo "PATH_3=$($env:REPO_PATH+"*\Release\x64\Ext2Mgr.exe")" >> $GITHUB_ENV
+         echo "PATH_1=$($env:REPO_PATH+"*\Release\x64\Ext4Fsd\")" >> "$GITHUB_ENV"
+         echo "PATH_2=$($env:REPO_PATH+"*\Release\x64\Ext2Srv.exe")" >> "$GITHUB_ENV"
+         echo "PATH_3=$($env:REPO_PATH+"*\Release\x64\Ext2Mgr.exe")" >> "$GITHUB_ENV"
          
 
     - name: ShowVariables
