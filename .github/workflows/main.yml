@@ -16,29 +16,31 @@ permissions:
 
 jobs:
   build:
-    runs-on: windows-2019
-
-    steps:
-
-      - name: Set Artifact Name
-        run: |
-         
+   runs-on: windows-2019
+   
+   steps:    
+  
+    - name: Set Artifact Name
+      env:
+        MY_PATH2: "/ggsd"
+      run: |         
           echo $(Get-Date -Format dd.MM.yy) | Set-Variable DATE_NOW
           echo $DATE_NOW
           Set-Variable -Name ARTFC_NAME -Value ($DATE_NoW + "-Ext4Fsd")
           echo "filename: $ARTFC_NAME"
-          echo "filename2: ${ext:FILE_NAME}"
+          echo "MY_PATH2: $ext:MY_PATH2"
           echo "filename3: ${{env.FILE_NAME}}"
-          Set-Variable -Name env:MY_PATH -Value ("/fsssg")
+          Set-Variable -Name env:MY_PATH2 -Value ("/fsssg")
+          echo "MY_PATH2: $ext:MY_PATH2"
           
-      - name: Show Variables
-        run: 'dir Env:'
+    - name: Show Variables
+      run: 'dir Env:'
       
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        with:
-         name: ${{env.FILE_NAME}}
-         path: |
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+          name: ${{env.FILE_NAME}}
+          path: |
             ${{env.MY_PATH}}
             
             
