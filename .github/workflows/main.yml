@@ -52,9 +52,9 @@ jobs:
          $DIR1="*\Release\x64\Ext4Fsd"
          $DIR2="*\Release\x64\Ext2Srv.exe" 
          $DIR3="*\Release\x64\Ext2Mgr.exe"
-         echo "{PATH_1}=${DIR1}" >> $GITHUB_ENV
-         echo "{PATH_2}=${DIR2}" >> $GITHUB_ENV
-         echo "{PATH_3}=${DIR3}" >> $GITHUB_ENV
+         echo "{PATH_1}={DIR1}" >> $GITHUB_ENV
+         echo "{PATH_2}={DIR2}" >> $GITHUB_ENV
+         echo "{PATH_3}={DIR3}" >> $GITHUB_ENV
          
 
     - name: ShowVariables
