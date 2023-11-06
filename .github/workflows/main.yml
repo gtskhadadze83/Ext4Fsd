@@ -33,9 +33,9 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-         name: $FILE_NAME
+         name: ${{env.FILE_NAME}}
          path: |
-            ${{env.FILE_NAME}}
+            ${{env.GITHUB_WORKSPACE}}
             
             
              
