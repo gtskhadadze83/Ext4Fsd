@@ -20,8 +20,7 @@ jobs:
  build:  
      
   runs-on: windows-2019   
-       
-  
+        
   env:
   
     DIR1: '*\Release\x64\Ext4Fsd\'
@@ -36,11 +35,11 @@ jobs:
   - name: SetArtifactName 
     id: ID1
     run: |
-          set DATE_NOW -Value $(Get-Date -Format dd.MM.yy)
-          echo $DATE_NOW
-          set FILE_NAME -Value $($DATE_NoW + "-Ext4Fsd")
-          echo "filename: $FILE_NAME"
-          echo "file_name=$FILE_NAME" >> $GITHUB_OUTPUT
+        set DATE_NOW -Value $(Get-Date -Format dd.MM.yy)
+        echo $DATE_NOW
+        set FILE_NAME -Value $($DATE_NoW + "-Ext4Fsd")
+        echo "filename: $FILE_NAME"
+        echo "file_name=$FILE_NAME" >> $GITHUB_OUTPUT
           
   - name: show ENV
     run: 'dir env:'
@@ -69,14 +68,12 @@ jobs:
          echo $env:PATH_3
          echo $env:DIR1
          echo $env:DIR2 
-         echo $env:DIR3
-         
-  - name: Upload        
-    uses: actions/upload-artifact@v3
+         echo $env:DIR3         
+        
+  - uses: actions/upload-artifact@v3
     with:
       name: $ARTF_NAME
       path: |
-            ${{env.PATH_1}}
-            ${{env.PATH_2}}      
-            ${{env.PATH_3}}
-            
+          ${{env.PATH_1}}
+          ${{env.PATH_2}}      
+          ${{env.PATH_3}}            
