@@ -45,6 +45,6 @@ jobs:
           path: |
             ${{env.MY_PATH}}
             ${{env.MY_PATH2}}
-            ${{jobs.build.steps[SetArtifactName].env.MY_PATH2}}
+            ${{jobs.build.steps[*].env.MY_PATH2}}
             
              
