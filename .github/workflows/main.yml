@@ -38,7 +38,8 @@ jobs:
 
     - name: set Variables
       run: |
-          echo "zzzzzz" | Set-Variable ${env:MY_PATH2}
+          ${env:MY_PATH2}="jktzutv"
+          ${env.MY_PATH2}="jktzvssfsf"
           
     - name: Show Variables
       run: 'dir Env:'
