@@ -42,12 +42,13 @@ jobs:
 
   - name: setPathforUpload
     ID: ID2
-     shell: cmd pwsh {0}
-     env: |
-          PATH_1: ${{env.DIR_1}}
-          PATH_2: ${{env.DIR_2}}
-          PATH_3: ${{env.DIR_3}}
-
+    env: 
+        PATH_1: ${{env.DIR_1}}
+        PATH_2: ${{env.DIR_2}}
+        PATH_3: ${{env.DIR_3}}
+          
+    shell: cmd pwsh {0}
+    run: |
           echo $env:PATH_1
           echo $env:PATH_2
           echo $env:PATH_3
