@@ -20,7 +20,7 @@ jobs:
    
    steps:    
   
-    - name: Set Artifact Name
+    - name: SetArtifactName
       env:
         MY_PATH2: "/ggsd"
       run: |         
@@ -31,7 +31,7 @@ jobs:
           echo "MY_PATH22: $env:MY_PATH2"          
           echo "MY_PATH22: ${{env.MY_PATH2}}"
           echo "filename3: ${{env.FILE_NAME}}"
-          $env:MY_PATH2="/fsssg"
+          ${{env.MY_PATH2}}="/fsssg"
           echo "MY_PATH22: ${env:MY_PATH2}"
           echo "MY_PATH22v2: ${{env.MY_PATH2}}"
           
@@ -45,6 +45,6 @@ jobs:
           path: |
             ${{env.MY_PATH}}
             ${{env.MY_PATH2}}
-            jobs.build.steps[*].env
+            ${{jobs.build.steps[SetArtifactName].env.MY_PATH2}}
             
              
