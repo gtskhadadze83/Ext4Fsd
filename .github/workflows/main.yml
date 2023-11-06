@@ -29,11 +29,9 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-         name: ${{ env.FILE_NAME }}
+         name: $ARTFC_NAME
          path: | 
-            ${{ env.FILE_PATH1 }}
-            ${{ env.FILE_PATH }}
-            ${{ env.GITHUB_WORKSPACE }}
+
             
             
              
