@@ -20,10 +20,10 @@ jobs:
    env:
 
       REPO_PATH: ${env:GITHUB_WORKSPACE}
-      OUT_PATH_1: ${{ PATH_1 }}
-      OUT_PATH_2: ${{ PATH_2 }}
-      OUT_PATH_3: ${{ PATH_3 }}
-      RELEASE_NAME: ${{ ARTF_NAME }} 
+      OUT_PATH_1: $PATH_1
+      OUT_PATH_2: $PATH_2
+      OUT_PATH_3: §PATH_3
+      RELEASE_NAME: $ARTF_NAME
       
    steps:
    
