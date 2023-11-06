@@ -38,15 +38,15 @@ jobs:
 
     - name: set Variables
       run: |
-          echo "MY_PATH3=zzzzzz" >> "$GITHUB_ENV"
+          echo "MY_PATH3=zzzzzz" >> $GITHUB_ENV
           
     - name: Show Variables
       run: 'dir Env:'
 
     - name: Show Variables
       run: |
-          echo "$MY_PATH3"
-          echo "${env:MY_PATH3}"         
+          echo $MY_PATH3
+          echo ${env:MY_PATH3}         
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
