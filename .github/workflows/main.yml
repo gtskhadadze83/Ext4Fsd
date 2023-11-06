@@ -48,9 +48,9 @@ jobs:
         PATH_3: ${{env.DIR_3}}      
     shell: cmd pwsh {0}
     run: |
-          echo $env:PATH_1
-          echo $env:PATH_2
-          echo $env:PATH_3
+        echo $env:PATH_1
+        echo $env:PATH_2
+        echo $env:PATH_3
 
           echo "filename: $env:FILE_NAME"
          
@@ -66,9 +66,9 @@ jobs:
          echo $env:DIR1
          echo $env:DIR2 
          echo $env:DIR3
-             
-  
-  - uses: actions/upload-artifact@v3
+         
+  - name: Upload        
+    uses: actions/upload-artifact@v3
     with:
       name: $ARTF_NAME
       path: |
