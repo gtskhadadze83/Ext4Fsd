@@ -52,9 +52,9 @@ jobs:
          $DIR1="*\Release\x64\Ext4Fsd"
          $DIR2="*\Release\x64\Ext2Srv.exe" 
          $DIR3="*\Release\x64\Ext2Mgr.exe"
-         echo '"PATH_1=$DIR1"' >> D:\a\_temp\_runner_file_commands\set_env_99739868-67ac-4665-b167-6c0eccb21aca
-         echo '"PATH_2=$DIR2"' >> D:\a\_temp\_runner_file_commands\set_env_99739868-67ac-4665-b167-6c0eccb21aca
-         echo '"PATH_3=$DIR3"' >> D:\a\_temp\_runner_file_commands\set_env_99739868-67ac-4665-b167-6c0eccb21aca
+         echo "'PATH_1=$DIR1'" >> D:\\a\\_temp\\_runner_file_commands\\set_env_99739868-67ac-4665-b167-6c0eccb21aca
+         echo "'PATH_2=$DIR2'" >> D:\\a\\_temp\\_runner_file_commands\\set_env_99739868-67ac-4665-b167-6c0eccb21aca
+         echo "'PATH_3=$DIR3'" >> D:\\a\\_temp\\_runner_file_commands\\set_env_99739868-67ac-4665-b167-6c0eccb21aca
          
 
     - name: ShowVariables
