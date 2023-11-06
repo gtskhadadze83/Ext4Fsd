@@ -24,7 +24,7 @@ jobs:
       OUT_PATH_2: $PATH_2
       OUT_PATH_3: $PATH_3
       RELEASE_NAME: $ARTF_NAME
-      
+       
    steps:
    
     - name: Checkout
@@ -54,8 +54,8 @@ jobs:
          $DIR3="*\Release\x64\Ext2Mgr.exe"
          echo <<-EOF"PATH_1=$DIR1"EOF >> "$GITHUN_ENV"EOF
          echo <<-EOF"PATH_2=$DIR2"EOF >> "$GITHUB_ENV"EOF
-         echo <<-EOF"PATH_3=$DIR3"EOF >> $GITHUB_ENV
-         EOF
+         echo <<-EOF"PATH_3=$DIR3"EOF >> "$GITHUB_ENV"
+EOF
          
 
     - name: ShowVariables
