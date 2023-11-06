@@ -68,8 +68,8 @@ jobs:
          echo $env:DIR2 
          echo $env:DIR3
              
-   
-  - uses: actions/upload-artifact@v3
+  - name: Uüöpaf
+    uses: actions/upload-artifact@v3
     id: ID4
     env:
       ARTF_NAME: ${{steps.ID1.outputs.file_name}}
