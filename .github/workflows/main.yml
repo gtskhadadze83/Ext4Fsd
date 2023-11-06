@@ -26,7 +26,8 @@ jobs:
           echo $DATE_NOW
           Set-Variable -Name ARTFC_NAME -Value ($DATE_NoW + "-Ext4Fsd")
           echo "filename: $ARTFC_NAME"
-          echo "filename2: $FILE_NAME"
+          echo "filename2: $ext:FILE_NAME"
+          echo "filename3: ${{env.FILE_NAME}}"
           
       - name: Show Variables
         run: 'dir Env:'
