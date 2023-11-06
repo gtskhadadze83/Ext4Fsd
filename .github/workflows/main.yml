@@ -18,10 +18,10 @@ jobs:
        
   
   env:
-   
-    DIR1: "*\Release\x64\Ext4Fsd"
-    DIR2: "*\Release\x64\Ext2Srv.exe" 
-    DIR3: "*\Release\x64\Ext2Mgr.exe"
+  
+    DIR1: '*\Release\x64\Ext4Fsd\'
+    DIR2: '*\Release\x64\Ext2Srv.exe'
+    DIR3: '*\Release\x64\Ext2Mgr.exe'
 
   steps:
    
@@ -54,6 +54,9 @@ jobs:
           echo $env:DIR1
           echo $env:DIR2 
           echo $env:DIR3
+          echo $DIR1
+          echo $DIR2 
+          echo $DIR3
          
 
   - name: ShowVariables
