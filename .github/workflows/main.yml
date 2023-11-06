@@ -31,9 +31,9 @@ jobs:
   - name: SetArtifactName 
     id: set_file_name
     run: |
-          DATE_NOW = $(Get-Date -Format dd.MM.yy)
+          set DATE_NOW = $(Get-Date -Format dd.MM.yy)
           echo $DATE_NOW
-          FILE_NAME = $($DATE_NoW + "-Ext4Fsd")
+          set FILE_NAME = $($DATE_NoW + "-Ext4Fsd")
           echo "filename: $FILE_NAME"
           
   - name: show ENV
