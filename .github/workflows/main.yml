@@ -53,9 +53,9 @@ jobs:
 
     - name: ShowVariables
       run: |
-         echo ${{env.PATH_1}}
-         echo ${{env.PATH_2}}
-         echo ${{env.PATH_3}}
+         echo $env:PATH_1
+         echo $env:PATH_2
+         echo $env:PATH_3
          echo ${{env.OUT_PATH_1}}
          echo ${{env.OUT_PATH_2}}
          echo ${{env.OUT_PATH_3}}
