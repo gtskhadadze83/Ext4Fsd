@@ -48,7 +48,7 @@ jobs:
       env:
        MY_PATH55: ${{ steps.step_one.outputs.MY_PATH5 }}
       run: |
-         echo "Path is $MY_PATH55"
+         echo $env:MY_PATH55
       
     - name: Upload Artifact
       env:
@@ -59,6 +59,8 @@ jobs:
           path: |
             ${{env.MY_PATH}}
             ${{env.MY_PATH2}}      
-            "$MY_PATH66"
+            $MY_PATH66
+            ${env:MY_PATH66}
             ${{env.MY_PATH66}}
-            ${{ steps.step_one.env.MY_PATH6 }}
+            $ext:MY_PATH6
+            
