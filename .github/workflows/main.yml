@@ -67,8 +67,8 @@ jobs:
          echo $env:DIR2 
          echo $env:DIR3
              
-  - name: Upload
-    uses: actions/upload-artifact@v3
+  
+  - uses: actions/upload-artifact@v3
     with:
       name: $ARTF_NAME
       path: |
