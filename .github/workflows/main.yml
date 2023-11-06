@@ -9,10 +9,10 @@ on:
 env:
 
  REPO_PATH: ${env:GITHUB_WORKSPACE}
- OUT_PATH_1: ${{ steps.set_pathes.outputs.PATH_1 }}
- OUT_PATH_2: ${{ steps.set_pathes.outputs.PATH_2 }}
- OUT_PATH_3: ${{ steps.set_pathes.outputs.PATH_3 }}
- RELEASE_NAME: ${{ steps.set_file_name.outputs.ARTF_NAME }}
+ OUT_PATH_1: ${{ steps.set_pathes.env.PATH_1 }}
+ OUT_PATH_2: ${{ steps.set_pathes.env.PATH_2 }}
+ OUT_PATH_3: ${{ steps.set_pathes.env.PATH_3 }}
+ RELEASE_NAME: ${{ steps.set_file_name.env.ARTF_NAME }}
   
 permissions:
   contents: read
@@ -44,9 +44,9 @@ jobs:
       id: set_pathes
       run: |
          echo ("REPO_PATH: ${{env.REPO_PATH}}")
-         echo "PATH_1=$($env:REPO_PATH+"*\Release\x64\Ext4Fsd\")" >> $GITHUB_OUTPUT
-         echo "PATH_2=$($env:REPO_PATH+"*\Release\x64\Ext2Srv.exe")" >> $GITHUB_OUTPUT
-         echo "PATH_3=$($env:REPO_PATH+"*\Release\x64\Ext2Mgr.exe")" >> $GITHUB_OUTPUT
+         echo "PATH_1=$($env:REPO_PATH+"*\Release\x64\Ext4Fsd\")" >> $GITHUB_ENV
+         echo "PATH_2=$($env:REPO_PATH+"*\Release\x64\Ext2Srv.exe")" >> $GITHUB_ENV
+         echo "PATH_3=$($env:REPO_PATH+"*\Release\x64\Ext2Mgr.exe")" >> $GITHUB_ENV
          
 
     - name: ShowVariables
