@@ -32,6 +32,7 @@ jobs:
           echo "MY_PATH22: ${{env.MY_PATH2}}"
           echo "filename3: ${{env.FILE_NAME}}"
           Set-Variable -Name env.MY_PATH2 -Value ("/fsssg")
+          $env.MY_PATH2="/kkkkkk"
           $MY_PATH2="/aaaaa"
           ${env:MY_PATH2}="/fsssjkgjg"
           echo "_MY_PATH2: $MY_PATH2"
