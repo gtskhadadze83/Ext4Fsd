@@ -6,13 +6,7 @@ on:
   pull_request:
     branches: [ "master" ]
 
-env:
 
- REPO_PATH: ${env:GITHUB_WORKSPACE}
- OUT_PATH_1: ${{ steps.set_pathes.env.PATH_1 }}
- OUT_PATH_2: ${{ steps.set_pathes.env.PATH_2 }}
- OUT_PATH_3: ${{ steps.set_pathes.env.PATH_3 }}
- RELEASE_NAME: ${{ steps.set_file_name.env.ARTF_NAME }}
   
 permissions:
   contents: read
@@ -21,7 +15,15 @@ jobs:
  build:  
      
    name: build_source
-   runs-on: windows-2019     
+   runs-on: windows-2019 
+   
+   env:
+
+      REPO_PATH: ${env:GITHUB_WORKSPACE}
+      OUT_PATH_1: ${{ steps.set_pathes.env.PATH_1 }}
+      OUT_PATH_2: ${{ steps.set_pathes.env.PATH_2 }}
+      OUT_PATH_3: ${{ steps.set_pathes.env.PATH_3 }}
+      RELEASE_NAME: ${{ steps.set_file_name.env.ARTF_NAME }} 
       
    steps:
    
