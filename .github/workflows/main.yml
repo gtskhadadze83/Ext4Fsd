@@ -45,6 +45,7 @@ jobs:
     - name: setPathforUpload
       id: set_pathes
       run: |
+         shell: powershell
          echo ${{env.GITHUB_WORKSPACE}}
          echo "${env:GITHUB_WORKSPACE}
          echo $GITHUB_WORKSPACE
