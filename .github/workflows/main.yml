@@ -7,52 +7,54 @@ on:
     branches: [ "master" ]
 
 env:
-  FILE_NAME: "Arti"
-  MY_PATH: "/sss/bbb"
+ REPO_PATH: ${{env.GITHUB_WORKSPACE}}
+ OUT_PATH_1: ${{ steps.setPathforUpload.outputs.PATH_1 }}
+ OUT_PATH_2: ${{ steps.setPathforUpload.outputs.PATH_2 }}
+ OUT_PATH_3: ${{ steps.setPathforUpload.outputs.PATH_3 }}
+ RELEASE_NAME: ${{ steps.set_file_name.outputs.ARTF_NAME }}
   
-
 permissions:
   contents: read
   
-
 jobs:
- build:
-   env:
-     MY_PATH2: "/ggsd"
+ build:  
      
-   name: building
-   runs-on: windows-2019
+   name: build_source
+   runs-on: windows-2019     
+      
    steps:
-    - name: SetArtifactName   
+   
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: SetArtifactName 
+      id: set_file_name
       run: |
           echo $(Get-Date -Format dd.MM.yy) | Set-Variable DATE_NOW
           echo $DATE_NOW
-          Set-Variable -Name ARTFC_NAME -Value ($DATE_NoW + "-Ext4Fsd")
-          echo "filename: $ARTFC_NAME"
-          echo "_env:MY_PATH2: ${env:MY_PATH2}"
-          echo "_env.PATH2: ${{env.MY_PATH2}}"
-          echo "filename3: ${{env.FILE_NAME}}"
+          Set-Variable -Name FILE_NAME -Value ($DATE_NoW + "-Ext4Fsd")
+          echo "filename: $FILE_NAME"
+          echo "ARTF_NAME=$FILE_NAME" >> $GITHUB_OUTPUT
           
-          echo "_env:MY_PATH2: ${env:MY_PATH2}"
-          echo "_env.PATH2: ${{env.MY_PATH2}}" 
-          
-    
+    - name: show ENV
+      run: 'dir env:'
 
-    - name: set Variables
-      id: step_one
+    - name: setPathforUpload
+      id: set_pathes
       run: |
-          echo "MY_PATH5=hdhfhdh" >> "$GITHUB_OUTPUT"
-          echo "MY_PATH6=path" >> "$GITHUB_ENV"
+         echo ("REPO_PATH: ${{env.REPO_PATH}}")
+         echo "PATH_1=$($env:REPO_PATH+"*\Release\x64\Ext4Fsd\")" >> $GITHUB_OUTPUT
+         echo "PATH_2=$($env:REPO_PATH+"*\Release\x64\Ext2Srv.exe")" >> $GITHUB_OUTPUT
+         echo "PATH_3=$($env:REPO_PATH+"*\Release\x64\Ext2Mgr.exe")" >> $GITHUB_OUTPUT
+         
 
-    - name: Show Variables
-      env:
-       MY_PATH55: ${{ steps.step_one.outputs.MY_PATH5 }}
+    - name: ShowVariables
       run: |
-         echo $env:MY_PATH55
-         echo "$env:MY_PATH55"
-         echo $MY_PATH55
-         echo "$MY_PATH55"
-      
+         echo ${{env.OUT_PATH_1}}
+         echo ${{env.OUT_PATH_2}}
+         echo ${{env.OUT_PATH_3}}
+         
+        
     - name: Upload Artifact
       env:
        MY_PATH66: ${{ steps.step_one.env.MY_PATH6 }}
@@ -60,9 +62,7 @@ jobs:
       with:
           name: ${{env.FILE_NAME}}
           path: |
-            ${{env.MY_PATH}}
-            ${{env.MY_PATH2}}      
-            $env:MY_PATH66
-            ${{ env.MY_PATH66 }}
-            ${{ steps.step_one.env.MY_PATH6 }}
+            ${{env.OUT_PATH_1}}
+            ${{env.OUT_PATH_2}}      
+            ${{env.OUT_PATH_3}}
             
