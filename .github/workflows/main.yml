@@ -41,7 +41,7 @@ jobs:
     run: 'dir env:'
 
   - name: setPathforUpload
-    ID: ID2
+    id: ID2
     env: 
         PATH_1: ${{env.DIR_1}}
         PATH_2: ${{env.DIR_2}}
@@ -57,10 +57,10 @@ jobs:
          
 
   - name: ShowVariables
-    run: ID3
+    id: ID3
     env: 
      working-directory: ${{env.GITHUB_WORKSPACE}}
-     
+     run: |
          echo $env:PATH_1
          echo $env:PATH_2
          echo $env:PATH_3
@@ -70,10 +70,11 @@ jobs:
          
         
   - name: Upload Artifact
-    ID: ID3
-     with:
+    id: ID4
+    env:
       ARTF_NAME: ${{steps.ID1.outputs.file_name}}
     uses: actions/upload-artifact@v3
+    with:
         name: $ARTF_NAME
         path: |
             ${{env.PATH_1}}
