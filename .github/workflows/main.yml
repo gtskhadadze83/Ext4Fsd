@@ -52,9 +52,9 @@ jobs:
          $DIR1="*\Release\x64\Ext4Fsd"
          $DIR2="*\Release\x64\Ext2Srv.exe" 
          $DIR3="*\Release\x64\Ext2Mgr.exe"
-         echo <<-EOF"PATH_1=$DIR1"EOF >> "$GITHUN_ENV"
-         echo <<-EOF"FPATH_2=$DIR2"EOF >> "$GITHUB_ENV"
-         echo <<-EOF"FPATH_3=$DIR3"EOF >> "$GITHUB_ENVEOF"
+         echo <<-EOF"PATH_1=$DIR1"EOF >> $GITHUN_ENV\n\r
+         echo <<-EOF"PATH_2=$DIR2"EOF >> $GITHUB_ENV\n\r
+         echo <<-EOF"PATH_3=$DIR3"EOF >> $GITHUB_ENV\n\r
          
 
     - name: ShowVariables
