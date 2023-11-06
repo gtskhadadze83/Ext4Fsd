@@ -18,10 +18,10 @@ jobs:
       - name: Set Artifact Name
         run: |
          
-          echo $(Get-Date -Format dd.MM.yy) | Set-Variable DATE_N
-          echo $DATE_N
-          Set-Item -Path Env:ARTFC_NAME -Value "$DATE_N + "-Ext4Fsd""
-          echo "filename: $Env:ARTFC_NAME"        
+          echo $(Get-Date -Format dd.MM.yy) | Set-Variable DATE_NOW
+          echo $DATE_NOW
+          Set-Variable -Name ARTFC_NAME -Value ($DATE_NoW + "-Ext4Fsd")
+          echo "filename: $ARTFC_NAME"        
           
       - name: Show Variables
         run: 'dir Env:'
