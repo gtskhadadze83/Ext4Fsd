@@ -25,7 +25,8 @@ jobs:
           echo $(Get-Date -Format dd.MM.yy) | Set-Variable DATE_NOW
           echo $DATE_NOW
           Set-Variable -Name ARTFC_NAME -Value ($DATE_NoW + "-Ext4Fsd")
-          echo "filename: $ARTFC_NAME"        
+          echo "filename: $ARTFC_NAME"
+          echo "filename2: $FILE_NAME"
           
       - name: Show Variables
         run: 'dir Env:'
