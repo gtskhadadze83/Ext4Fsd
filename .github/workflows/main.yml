@@ -44,7 +44,4 @@ jobs:
           name: ${{env.FILE_NAME}}
           path: |
             ${{env.MY_PATH}}
-            ${{env.MY_PATH2}}
-            ${{jobs.build.steps[*].env.MY_PATH2}}
-            
-             
+            ${{env.MY_PATH2}}             
