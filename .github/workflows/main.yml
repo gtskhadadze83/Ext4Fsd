@@ -49,9 +49,9 @@ jobs:
          $env:DIR1="*\Release\x64\Ext4Fsd"
          $env:DIR2="*\Release\x64\Ext2Srv.exe" 
          $env:DIR3="*\Release\x64\Ext2Mgr.exe"
-         echo "PATH_1=$env:DIR1" >> "$GITHUb_ENV"
-         echo "PATH_2=$env:DIR2" >> "$GITHUB_ENV"
-         echo "PATH_3=$env:DIR3" >> "$GITHUB_ENV"
+         $env:PATH_1=$env:DIR1
+         $nv:PATH_2=$env:DIR2
+         $env:PATH_3=$env:DIR3
          
 
     - name: ShowVariables
@@ -59,9 +59,6 @@ jobs:
          echo $env:PATH_1
          echo $env:PATH_2
          echo $env:PATH_3
-         echo $PATH_1
-         echo $PATH_2
-         echo $PATH_3
          
         
     - name: Upload Artifact
