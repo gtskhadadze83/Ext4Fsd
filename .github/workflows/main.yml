@@ -31,8 +31,9 @@ jobs:
           echo "MY_PATH22: $env:MY_PATH2"          
           echo "MY_PATH22: ${{env.MY_PATH2}}"
           echo "filename3: ${{env.FILE_NAME}}"
-          ${env:MY_PATH2}="/fsssg"
+          $env:MY_PATH2="/fsssg"
           echo "MY_PATH22: ${env:MY_PATH2}"
+          echo "MY_PATH22v2: ${{env.MY_PATH2}}"
           
     - name: Show Variables
       run: 'dir Env:'
@@ -44,6 +45,6 @@ jobs:
           path: |
             ${{env.MY_PATH}}
             ${{env.MY_PATH2}}
-            
+            jobs.build.steps[*].env
             
              
