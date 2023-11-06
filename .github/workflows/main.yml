@@ -50,12 +50,8 @@ jobs:
           echo $env:PATH_1
           echo $env:PATH_2
           echo $env:PATH_3
-          echo $env:DIR1
-          echo $env:DIR2 
-          echo $env:DIR3
-          echo $DIR1
-          echo $DIR2 
-          echo $DIR3
+
+          echo "filename: $env:FILE_NAME"
          
 
   - name: ShowVariables
