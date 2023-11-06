@@ -6,7 +6,12 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  # Path to the solution file relative to the root of the project.
+  SOLUTION_FILE_PATH: Ext4Fsd.sln
 
+  BUILD_CONFIGURATION: Release
+  BUILD_PLATFORM: x64
   
 permissions:
   contents: read
@@ -46,7 +51,6 @@ jobs:
         PATH_1: ${{env.DIR_1}}
         PATH_2: ${{env.DIR_2}}
         PATH_3: ${{env.DIR_3}}      
-    shell: cmd pwsh {0}
     run: |
         echo $env:PATH_1
         echo $env:PATH_2
