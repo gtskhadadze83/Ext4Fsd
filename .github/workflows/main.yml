@@ -9,6 +9,7 @@ on:
 env:
   FILE_NAME: "Arti"
   MY_PATH: "/sss/bbb"
+  MY_PATH2: "/ggsd"
 
 permissions:
   contents: read
@@ -28,12 +29,10 @@ jobs:
           echo $DATE_NOW
           Set-Variable -Name ARTFC_NAME -Value ($DATE_NoW + "-Ext4Fsd")
           echo "filename: $ARTFC_NAME"
-          echo "MY_PATH22: $env:MY_PATH2"          
-          echo "MY_PATH22: ${{env.MY_PATH2}}"
+          echo "_env:MY_PATH2: ${env:MY_PATH2}"
+          echo "_env.PATH2: ${{env.MY_PATH2}}"
           echo "filename3: ${{env.FILE_NAME}}"
-          Set-Variable -Name env.MY_PATH2 -Value ("/fsssg")
-          ${env.MY_PATH2}="/kkkkkk"
-          $MY_PATH2="/aaaaa"
+          ${{env.MY_PATH2}}="/kkkkkk"
           ${env:MY_PATH2}="/fsssjkgjg"
           echo "_MY_PATH2: $MY_PATH2"
           echo "_env:MY_PATH2: ${env:MY_PATH2}"
