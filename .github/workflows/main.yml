@@ -19,10 +19,10 @@ jobs:
    
    env:
 
-      REPO_PATH: ${env:GITHUB_WORKSPACE}
+      REPO_PATH: $GITHUB_WORKSPACE
       OUT_PATH_1: $PATH_1
       OUT_PATH_2: $PATH_2
-      OUT_PATH_3: §PATH_3
+      OUT_PATH_3: $PATH_3
       RELEASE_NAME: $ARTF_NAME
       
    steps:
@@ -45,7 +45,7 @@ jobs:
     - name: setPathforUpload
       id: set_pathes
       run: |
-         echo ("REPO_PATH: ${{env.REPO_PATH}}")
+         echo "REPO_PATH: ${{env.REPO_PATH}}"
          echo "PATH_1=$($env:REPO_PATH+"*\Release\x64\Ext4Fsd\")" >> "$GITHUB_ENV"
          echo "PATH_2=$($env:REPO_PATH+"*\Release\x64\Ext2Srv.exe")" >> "$GITHUB_ENV"
          echo "PATH_3=$($env:REPO_PATH+"*\Release\x64\Ext2Mgr.exe")" >> "$GITHUB_ENV"
@@ -53,6 +53,9 @@ jobs:
 
     - name: ShowVariables
       run: |
+         echo ${{env.PATH_1}}
+         echo ${{env.PATH_2}}
+         echo ${{env.PATH_3}}
          echo ${{env.OUT_PATH_1}}
          echo ${{env.OUT_PATH_2}}
          echo ${{env.OUT_PATH_3}}
