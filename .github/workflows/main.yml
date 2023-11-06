@@ -45,6 +45,7 @@ jobs:
     - name: setPathforUpload
       id: set_pathes
       run: |
+         echo "GITHUB_WORKSPACE: ${{env.GITHUB_WORKSPACE}}"
          echo "REPO_PATH: ${{env.REPO_PATH}}"
          echo "PATH_1=$($env:REPO_PATH+"*\Release\x64\Ext4Fsd\")" >> "$GITHUB_ENV"
          echo "PATH_2=$($env:REPO_PATH+"*\Release\x64\Ext2Srv.exe")" >> "$GITHUB_ENV"
