@@ -34,27 +34,23 @@ jobs:
           echo "filename3: ${{env.FILE_NAME}}"
           
           echo "_env:MY_PATH2: ${env:MY_PATH2}"
-          echo "_env.PATH2: ${{env.MY_PATH2}}"
-
-    - name: set Variables
-      run: |
-          ${env:MY_PATH2}="jktzutv"
-          ${env.MY_PATH2}="jktzvssfsf"
-          
+          echo "_env.PATH2: ${{env.MY_PATH2}}"     
     - name: Show Variables
       run: 'dir Env:'
 
-    - name: Show Variables
+    - name: set Variables
+      id: step_one
       run: |
-          echo $MY_PATH2
-          echo ${env:MY_PATH2}         
+          echo "MY_PATH4=hdhfhdh" >> "$GITHUB_ENV"
+          echo "MY_PATH3=hdhfhdh" >> "$GITHUB_OUTPUT"
       
     - name: Upload Artifact
+      id: step_two
       uses: actions/upload-artifact@v3
       with:
           name: ${{env.FILE_NAME}}
           path: |
             ${{env.MY_PATH}}
             ${{env.MY_PATH2}}      
-            ${{env.MY_PATH3}}
-            $MY_PATH3
+            ${{steps.step_one.outputs.MY_PATH3}}
+            
