@@ -45,8 +45,8 @@ jobs:
 
     - name: Show Variables
       run: |
-          echo $MY_PATH3
-          echo ${{env.MY_PATH3}}
+          echo "$MY_PATH3"
+          echo "${env:MY_PATH3}"         
       
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
