@@ -29,7 +29,7 @@ jobs:
           echo "filename: $ARTFC_NAME"
           echo "filename2: ${ext:FILE_NAME}"
           echo "filename3: ${{env.FILE_NAME}}"
-          Set-Variable -Name MY_PATH -Value ("/fsssg")
+          Set-Variable -Name env:MY_PATH -Value ("/fsssg")
           
       - name: Show Variables
         run: 'dir Env:'
