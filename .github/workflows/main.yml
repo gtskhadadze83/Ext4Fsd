@@ -1,4 +1,4 @@
-name: Test
+name: Testing
 
 on:
   push:
@@ -34,14 +34,14 @@ jobs:
           echo "FILE_PATH: + $Env:FILE_PATH";
           echo "FILE_NAME: + $Env:FILE_NAME";
 
-    - name: Show Variables
-      run: 'dir Env:'
+      - name: Show Variables
+        run: 'dir Env:'
       
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: ${{ env.FILE_NAME }}
-        path: | 
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+         name: ${{ env.FILE_NAME }}
+         path: | 
             ${{ env.FILE_PATH1 }}
             ${{ env.FILE_PATH }}
             ${{ env.GITHUB_WORKSPACE }}
