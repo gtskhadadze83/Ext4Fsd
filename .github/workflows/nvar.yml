@@ -1,4 +1,4 @@
-NAme: ENVAR
+Name: ENVAR
 
 env:
   TEST_RESULT: 'success'
@@ -34,7 +34,7 @@ steps:
 job2:
 name: Access modified env variable
 needs: [job1]
-runs-on: ubuntu-latest
+runs-on: ubuntu-latest	
 steps:
 - name: Print the output of job1
 run: echo "needs.job1.outputs.test-result = ${{ needs.job1.outputs.test-result }}"
