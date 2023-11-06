@@ -32,7 +32,7 @@ jobs:
           echo "_env:MY_PATH2: ${env:MY_PATH2}"
           echo "_env.PATH2: ${{env.MY_PATH2}}"
           echo "filename3: ${{env.FILE_NAME}}"
-          ${env.MY_PATH2}="/kkkkkk"
+          ${{env.MY_PATH2}}="/kkkkkk"
           ${env:MY_PATH2}="/fsssjkgjg"
           echo "_env:MY_PATH2: ${env:MY_PATH2}"
           echo "_env.PATH2: ${{env.MY_PATH2}}"
